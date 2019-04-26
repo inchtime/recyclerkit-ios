@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RecyclerKit: 85dbd80b09a7caaa967a541201e77e8687bb74cb
+  RecyclerKit: a85658ba7bdcf69056ee61affbde430d2dcc14c7
 
 PODFILE CHECKSUM: a510b8e12bf2f1ba5f7c0ff935065f3a625cbc70
 

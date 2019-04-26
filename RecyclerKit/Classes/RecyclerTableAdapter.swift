@@ -4,7 +4,7 @@
 
 import UIKit
 
-class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
+public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     typealias OnModelViewClick = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> Void
     
@@ -84,15 +84,15 @@ class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
         self.tableView.dataSource = self
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    private func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].models.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewModel = viewModelOf(indexPath: indexPath)
         let identifier = viewModel.identifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
@@ -100,38 +100,38 @@ class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    private func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sec = sections[section]
         headerViewBind?(sec, sec.viewForHeader)
         return sec.viewForHeader
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    private func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let header = sections[section].viewForHeader else { return 0 }
         return header.frame.height > 0 ? header.frame.height : UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    private func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sec = sections[section]
         footerViewBind?(sec, sec.viewForFooter)
         return sec.viewForFooter
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    private func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         guard let footer = sections[section].viewForFooter else { return 0 }
         return footer.frame.height > 0 ? footer.frame.height : UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    private func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         modelViewClick?(indexPath, viewModelOf(indexPath: indexPath))
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let viewModel = viewModelOf(indexPath: indexPath)
         return viewModel.editable
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    private func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let viewModel = viewModelOf(indexPath: indexPath)
         return modelViewSwipeActionsConfiguration?(indexPath, viewModel)
     }
@@ -171,7 +171,7 @@ class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
         return sections[indexPath.section].models[indexPath.item]
     }
     
-    class Builder {
+    public class Builder {
         
         private var adapter: RecyclerTableAdapter
         

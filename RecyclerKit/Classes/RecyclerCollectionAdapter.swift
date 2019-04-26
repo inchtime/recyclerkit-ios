@@ -4,7 +4,7 @@
 
 import UIKit
 
-class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     typealias OnModelViewClick = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> Void
     
@@ -82,15 +82,15 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: identifierDefault)
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    private func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sections[section].models.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let viewModel = viewModelOf(indexPath: indexPath)
         
@@ -103,7 +103,7 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    private func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let section = sections[indexPath.section]
         
@@ -128,11 +128,11 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         return view
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    private func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         modelViewClick?(indexPath, viewModelOf(indexPath: indexPath))
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let sec = sections[section]
         if sec.heightForHeader <= 0 {
             return CGSize.zero
@@ -140,7 +140,7 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         return CGSize(width: collectionView.frame.width, height: sec.heightForHeader)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         let sec = sections[section]
         if sec.heightForFooter <= 0 {
             return CGSize.zero
@@ -148,7 +148,7 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         return CGSize(width: collectionView.frame.width, height: sec.heightForFooter)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewModel = viewModelOf(indexPath: indexPath)
         let width = collectionView.frame.width
         let height = collectionView.frame.height
@@ -199,7 +199,7 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         return sections[indexPath.section].models[indexPath.item]
     }
     
-    class Builder {
+    public class Builder {
         
         private var adapter: RecyclerCollectionAdapter
         
