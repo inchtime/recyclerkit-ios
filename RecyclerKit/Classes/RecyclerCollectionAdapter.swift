@@ -22,15 +22,15 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
     
     public class Section: Hashable {
         
-        var name: String = ""
-        var value: Any?
+        public var name: String = ""
+        public var value: Any?
         
-        var identifierForHeader: String?
-        var heightForHeader: CGFloat = 0.0
-        var identifierForFooter: String?
-        var heightForFooter: CGFloat = 0.0
+        public var identifierForHeader: String?
+        public var heightForHeader: CGFloat = 0.0
+        public var identifierForFooter: String?
+        public var heightForFooter: CGFloat = 0.0
         
-        var models: [ViewModel] = []
+        public var models: [ViewModel] = []
         
 //        var hashValue : Int {
 //            return name.hashValue
@@ -46,12 +46,13 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
     }
     
     public class ViewModel {
-        var identifier: String
-        var value: Any?
-        var spanCount: CGFloat
-        var aspectRatio: CGFloat
         
-        init(identifier: String, value: Any?, spanCount: CGFloat = 1, aspectRatio: CGFloat = 1.0) {
+        public var identifier: String
+        public var value: Any?
+        public var spanCount: CGFloat
+        public var aspectRatio: CGFloat
+        
+        public init(identifier: String, value: Any?, spanCount: CGFloat = 1, aspectRatio: CGFloat = 1.0) {
             self.identifier = identifier
             self.value = value
             self.spanCount = spanCount
@@ -207,7 +208,7 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
         
         private var direction : UICollectionView.ScrollDirection = .vertical
         
-        init(_ collectionView: UICollectionView) {
+        public init(_ collectionView: UICollectionView) {
             self.collectionView = collectionView
             self.adapter = RecyclerCollectionAdapter(collectionView: collectionView/*, spanCount: spanCount*/)
         }

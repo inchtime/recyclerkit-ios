@@ -8,16 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		02DEAD77AB8E1BF034D41E9379B4DE37 /* Pods-RecyclerKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8C7F259EC7DC2F065B71A61E7EF8C2 /* Pods-RecyclerKit_Tests-dummy.m */; };
-		0AF7DE506791C5EDFD62AD63CB4E9E63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
 		39862791A6BED134150C1B3464F97098 /* RecyclerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411E660D38642A2A0C4118C2080B754 /* RecyclerKit.swift */; };
+		4AF4C31F76331695EAC80ED5A2B3ED19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		5F333B97EF108147FBA2608E34E7AC67 /* RecyclerKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B5B509A67DD6F8E56C972D4565A8C81 /* RecyclerKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		669AE0019561B2A72386B8E0B260E5D8 /* RecyclerKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4049918B67C9DFB23B07085453E6042 /* RecyclerKit-dummy.m */; };
-		671E7F33E10002666586930570224738 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
+		671E7F33E10002666586930570224738 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		744E2C15C89B687C1675A1692FBCBD68 /* RecyclerTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704965DBCFDC751F000ED8E578B59C2 /* RecyclerTableAdapter.swift */; };
 		8A462A01B33E203D78E5E93BFAB0575D /* Pods-RecyclerKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EFFAD6AA55CC47655E372A797822D67 /* Pods-RecyclerKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92BD8D6601068CB4291A9EE67BE32E76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
+		92BD8D6601068CB4291A9EE67BE32E76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		9B0DD8496CFF985BB4B14CD09EAAC582 /* Pods-RecyclerKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87577CD31117032A5C835CF7CB644D39 /* Pods-RecyclerKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F1CEEAB7F420B3B40235F07492EDEF2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */; };
 		E19A01B3E72732CAB5EA7D9E6D06698D /* RecyclerCollectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23878F850F9A1A6C7B0B283796D53FD1 /* RecyclerCollectionAdapter.swift */; };
 		E8FC4413D099EEFF5850FF2DD33E7A8D /* Pods-RecyclerKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB098CC905AABF7EA6AD7659AFBBDB21 /* Pods-RecyclerKit_Example-dummy.m */; };
 /* End PBXBuildFile section */
@@ -46,7 +45,6 @@
 		1B5B4A6780E13C2E4E1C5798D3C63DEB /* RecyclerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RecyclerKit.framework; path = RecyclerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFCFE5434139E794250D4F7D172F8A /* RecyclerKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RecyclerKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		23878F850F9A1A6C7B0B283796D53FD1 /* RecyclerCollectionAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecyclerCollectionAdapter.swift; path = RecyclerKit/Classes/RecyclerCollectionAdapter.swift; sourceTree = "<group>"; };
-		40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4411E660D38642A2A0C4118C2080B754 /* RecyclerKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecyclerKit.swift; path = RecyclerKit/Classes/RecyclerKit.swift; sourceTree = "<group>"; };
 		4B5B509A67DD6F8E56C972D4565A8C81 /* RecyclerKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RecyclerKit-umbrella.h"; sourceTree = "<group>"; };
 		4C8C7F259EC7DC2F065B71A61E7EF8C2 /* Pods-RecyclerKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RecyclerKit_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -66,13 +64,13 @@
 		C2ACD42E8FD641E63ED05E1F51D970CC /* RecyclerKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RecyclerKit.modulemap; sourceTree = "<group>"; };
 		C3AE09F369A82B1D7E8888EEAA992986 /* RecyclerKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RecyclerKit.xcconfig; sourceTree = "<group>"; };
 		C7FF343B7F436C5075E2E19A40908B9E /* Pods-RecyclerKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RecyclerKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D403B13ED8CA9C617EC79874E04FEBC3 /* Pods-RecyclerKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyclerKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		D4B7048A766FBBCEFEAFBE6B48296F2E /* Pods-RecyclerKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyclerKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		D822038A65429EC0F286345F5A41B0F4 /* Pods_RecyclerKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RecyclerKit_Example.framework; path = "Pods-RecyclerKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88331E49C43109C5D8D924F13228CBE /* Pods-RecyclerKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RecyclerKit_Example.modulemap"; sourceTree = "<group>"; };
 		DA3C045D701499EB3DF23BA0649A60DE /* Pods-RecyclerKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RecyclerKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EB098CC905AABF7EA6AD7659AFBBDB21 /* Pods-RecyclerKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RecyclerKit_Example-dummy.m"; sourceTree = "<group>"; };
-		ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FC66C0C034B558B0C418D16EA3F5BE88 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		FDAC263F33AC6AB1E292C2AA1D2CF2E2 /* Pods_RecyclerKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RecyclerKit_Tests.framework; path = "Pods-RecyclerKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,12 +84,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A7ED8BEF5D099E46EFE47F5E2A5E79DD /* Frameworks */ = {
+		C73054553CF309ACBE0C70AE74ADB69D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AF7DE506791C5EDFD62AD63CB4E9E63 /* Foundation.framework in Frameworks */,
-				9F1CEEAB7F420B3B40235F07492EDEF2 /* UIKit.framework in Frameworks */,
+				4AF4C31F76331695EAC80ED5A2B3ED19 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,14 +103,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E169A450ED27AC725DF52953F66D11E0 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		28375C00BB4E3FE76FA664362F4B8C99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +152,14 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
+		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		BFE42A3EEE11E176B087932FF23C5957 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,10 +175,18 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				6AD73E661C7210D5E53F98F4C7FF95EF /* Development Pods */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				28375C00BB4E3FE76FA664362F4B8C99 /* Products */,
 				D58EFD3976700A16D5D274D7BA5D7217 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D4B42679DE20309F846409D48046802A /* RecyclerKit */ = {
@@ -220,15 +225,6 @@
 			);
 			name = "Pods-RecyclerKit_Tests";
 			path = "Target Support Files/Pods-RecyclerKit_Tests";
-			sourceTree = "<group>";
-		};
-		E169A450ED27AC725DF52953F66D11E0 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */,
-				ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,7 +301,7 @@
 			buildPhases = (
 				2266DA2001BAAA1A486E8E14DF6FD5CC /* Headers */,
 				C6188A455A69A902AAF72E4C05FECF8D /* Sources */,
-				A7ED8BEF5D099E46EFE47F5E2A5E79DD /* Frameworks */,
+				C73054553CF309ACBE0C70AE74ADB69D /* Frameworks */,
 				1A90589D356EF0B77852AD72F174757D /* Resources */,
 			);
 			buildRules = (

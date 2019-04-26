@@ -20,15 +20,19 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
     
     public class Section: Hashable {
         
-        var name: String = ""
+        public var name: String = ""
         
-        var value: Any?
+        public var value: Any?
         
-        var viewForHeader: UIView?
+        public var viewForHeader: UIView?
         
-        var viewForFooter: UIView?
+        public var viewForFooter: UIView?
         
-        var models: [ViewModel] = []
+        public var models: [ViewModel] = []
+        
+        public init () {
+            
+        }
         
 //        var hashValue : Int {
 //            return name.hashValue
@@ -45,20 +49,20 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
     
     public class ViewModel {
         
-        init(identifier: String, value: Any) {
+        public init(identifier: String, value: Any) {
             self.identifier = identifier
             self.value = value
         }
         
-        init(identifier: String, value: Any, editable: Bool) {
+        public init(identifier: String, value: Any, editable: Bool) {
             self.identifier = identifier
             self.value = value
             self.editable = editable
         }
         
-        var identifier: String
-        var value: Any
-        var editable: Bool = false
+        public var identifier: String
+        public var value: Any
+        public var editable: Bool = false
     }
     
     public var sections: [Section] = [] {
@@ -77,7 +81,7 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
     
     public var modelViewSwipeActionsConfiguration: OnModelViewSwipeActionsConfiguration?
     
-    init(_ tableView: UITableView) {
+    public init(_ tableView: UITableView) {
         self.tableView = tableView
         super.init()
         self.tableView.delegate = self
@@ -177,7 +181,7 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
         
         private var tableView: UITableView
         
-        init(_ tableView: UITableView) {
+        public init(_ tableView: UITableView) {
             self.tableView = tableView
             self.adapter = RecyclerTableAdapter(tableView)
         }
