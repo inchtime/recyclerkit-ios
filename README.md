@@ -22,7 +22,7 @@ pod 'RecyclerKit'
 
 ## Author
 
-evan-cai, evan-cai@live.cn
+evancai, evan-cai@live.cn
 
 ## License
 

@@ -1,6 +1,6 @@
 {
   "name": "RecyclerKit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "A layout framewrok for iOS",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/inchtime/recyclerkit-ios",
@@ -13,10 +13,12 @@
   },
   "source": {
     "git": "https://github.com/inchtime/recyclerkit-ios.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "11.0"
   },
-  "source_files": "RecyclerKit/Classes/**/*"
+  "swift_version": "4.2",
+  "source_files": "RecyclerKit/Classes/**/*",
+  "frameworks": "UIKit"
 }
