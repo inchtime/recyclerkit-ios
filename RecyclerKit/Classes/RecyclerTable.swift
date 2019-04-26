@@ -28,7 +28,7 @@ open class RecyclerTable: NSObject {
 
     private var tableView: UITableView
     
-    private var adapter: Adpater = Adpater()
+    private var adapter: Adapter = Adapter()
     
     open var sections: [Section] = [] {
         didSet {
@@ -85,7 +85,7 @@ open class RecyclerTable: NSObject {
         public var editable: Bool = false
     }
     
-    class Adpater: NSObject, UITableViewDelegate, UITableViewDataSource {
+    class Adapter: NSObject, UITableViewDelegate, UITableViewDataSource {
         
         var holder: RecyclerTable!
         

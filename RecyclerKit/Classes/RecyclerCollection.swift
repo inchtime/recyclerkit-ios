@@ -4,7 +4,7 @@
 
 import UIKit
 
-class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+open class RecyclerCollection: NSObject {
     
     public typealias OnModelViewClick = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> Void
     
@@ -12,19 +12,34 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
     
     public typealias OnReuseableViewBind = (_ indexPath: IndexPath, _ section: Section, _ kind: String, _ reuseableView: UICollectionReusableView) -> Void
     
+    open var modelViewBind : OnModelViewBind?
+    
+    open var modelViewClick : OnModelViewClick?
+    
+    open var reuseableViewBind : OnReuseableViewBind?
+
     private var collectionView: UICollectionView
+    
+    private var adapter: Adapter = Adapter()
     
     private var identifierDefault = String(describing: UICollectionViewCell.self)
     
     public var spanCount : CGFloat = 1.0
     
     public var direction : UICollectionView.ScrollDirection = .vertical
-    
+
+    public var sections: [Section] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+
     public class Section: Hashable {
+        
+        public init () { }
         
         public var name: String = ""
         public var value: Any?
-        
         public var identifierForHeader: String?
         public var heightForHeader: CGFloat = 0.0
         public var identifierForFooter: String?
@@ -32,11 +47,7 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         
         public var models: [ViewModel] = []
         
-        public init() {
-            
-        }
-        
-//        var hashValue : Int {
+//        public var hashValue : Int {
 //            return name.hashValue
 //        }
         
@@ -44,7 +55,7 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
             hasher.combine(name)
         }
         
-        public static func == (lhs: RecyclerCollectionAdapter.Section, rhs: RecyclerCollectionAdapter.Section) -> Bool {
+        public static func == (lhs: RecyclerCollection.Section, rhs: RecyclerCollection.Section) -> Bool {
             return lhs.name == rhs.name
         }
     }
@@ -66,108 +77,104 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
     
     //    private var spanCount: Int = 1
     
-    public var sections: [Section] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
-    
-    public var modelViewBind : OnModelViewBind?
-    
-    public var modelViewClick : OnModelViewClick?
-    
-    public var reuseableViewBind : OnReuseableViewBind?
     
     public init(collectionView: UICollectionView/*, spanCount: Int*/) {
         self.collectionView = collectionView
         //        self.spanCount = spanCount
         super.init()
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
+        self.adapter.holder = self
+        self.collectionView.delegate = self.adapter
+        self.collectionView.dataSource = self.adapter
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: identifierDefault)
     }
     
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections.count
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections[section].models.count
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    class Adapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
         
-        let viewModel = viewModelOf(indexPath: indexPath)
+        var holder: RecyclerCollection!
         
-        let identifier = viewModel.identifier
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        
-        modelViewBind?(indexPath, viewModel, cell)
-        
-        return cell
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let section = sections[indexPath.section]
-        
-        var identifier = ""
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            identifier = section.identifierForHeader ?? ""
-        case UICollectionView.elementKindSectionFooter:
-            identifier = section.identifierForFooter ?? ""
-        default:
-            identifier = ""
+        func numberOfSections(in collectionView: UICollectionView) -> Int {
+            return holder.sections.count
         }
         
-        if identifier.isEmpty {
-            return UICollectionReusableView()
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return holder.sections[section].models.count
         }
         
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath)
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            
+            let viewModel = holder.viewModelOf(indexPath: indexPath)
+            
+            let identifier = viewModel.identifier
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+            
+            holder.modelViewBind?(indexPath, viewModel, cell)
+            
+            return cell
+        }
         
-        reuseableViewBind?(indexPath, section, kind, view)
+        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            
+            let section = holder.sections[indexPath.section]
+            
+            var identifier = ""
+            switch kind {
+            case UICollectionView.elementKindSectionHeader:
+                identifier = section.identifierForHeader ?? ""
+            case UICollectionView.elementKindSectionFooter:
+                identifier = section.identifierForFooter ?? ""
+            default:
+                identifier = ""
+            }
+            
+            if identifier.isEmpty {
+                return UICollectionReusableView()
+            }
+            
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath)
+            
+            holder.reuseableViewBind?(indexPath, section, kind, view)
+            
+            return view
+        }
         
-        return view
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        modelViewClick?(indexPath, viewModelOf(indexPath: indexPath))
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let sec = sections[section]
-        if sec.heightForHeader <= 0 {
-            return CGSize.zero
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            holder.modelViewClick?(indexPath, holder.viewModelOf(indexPath: indexPath))
         }
-        return CGSize(width: collectionView.frame.width, height: sec.heightForHeader)
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            let sec = holder.sections[section]
+            if sec.heightForHeader <= 0 {
+                return CGSize.zero
+            }
+            return CGSize(width: collectionView.frame.width, height: sec.heightForHeader)
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+            let sec = holder.sections[section]
+            if sec.heightForFooter <= 0 {
+                return CGSize.zero
+            }
+            return CGSize(width: collectionView.frame.width, height: sec.heightForFooter)
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let viewModel = holder.viewModelOf(indexPath: indexPath)
+            let width = collectionView.frame.width
+            let height = collectionView.frame.height
+            var itemSize = CGSize.zero
+            switch holder.direction {
+            case .horizontal:
+                let itemHeight = height / holder.spanCount * viewModel.spanCount
+                itemSize = CGSize(width: itemHeight * viewModel.aspectRatio, height: itemHeight)
+            case .vertical:
+                let itemWidth = width / holder.spanCount * viewModel.spanCount
+                itemSize = CGSize(width: itemWidth, height: itemWidth / viewModel.aspectRatio)
+            }
+            return itemSize
+        }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        let sec = sections[section]
-        if sec.heightForFooter <= 0 {
-            return CGSize.zero
-        }
-        return CGSize(width: collectionView.frame.width, height: sec.heightForFooter)
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let viewModel = viewModelOf(indexPath: indexPath)
-        let width = collectionView.frame.width
-        let height = collectionView.frame.height
-        var itemSize = CGSize.zero
-        switch direction {
-        case .horizontal:
-            let itemHeight = height / spanCount * viewModel.spanCount
-            itemSize = CGSize(width: itemHeight * viewModel.aspectRatio, height: itemHeight)
-        case .vertical:
-            let itemWidth = width / spanCount * viewModel.spanCount
-            itemSize = CGSize(width: itemWidth, height: itemWidth / viewModel.aspectRatio)
-        }
-        return itemSize
-    }
     
     /**
      * append a section
@@ -206,7 +213,7 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
     
     open class Builder {
         
-        private var adapter: RecyclerCollectionAdapter
+        private var collection: RecyclerCollection
         
         private var collectionView: UICollectionView
         
@@ -214,7 +221,7 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         
         public init(_ collectionView: UICollectionView) {
             self.collectionView = collectionView
-            self.adapter = RecyclerCollectionAdapter(collectionView: collectionView/*, spanCount: spanCount*/)
+            self.collection = RecyclerCollection(collectionView: collectionView/*, spanCount: spanCount*/)
         }
         
         open func withLayout(_ layout: UICollectionViewLayout) -> Builder {
@@ -224,8 +231,8 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         
         open func withFlowLayout(spanCount: CGFloat = 1.0, direction : UICollectionView.ScrollDirection = .vertical) -> Builder {
             
-            self.adapter.spanCount = spanCount
-            self.adapter.direction = direction
+            self.collection.spanCount = spanCount
+            self.collection.direction = direction
             
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = direction
@@ -237,22 +244,22 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         }
         
         open func modelViewBind(_ modelViewBind: @escaping OnModelViewBind) -> Builder {
-            self.adapter.modelViewBind = modelViewBind
+            self.collection.modelViewBind = modelViewBind
             return self
         }
         
         open func modelViewClick(_ modelViewClick: @escaping OnModelViewClick) -> Builder {
-            self.adapter.modelViewClick = modelViewClick
+            self.collection.modelViewClick = modelViewClick
             return self
         }
         
         open func reuseableViewBind(_ reuseableViewBind: @escaping OnReuseableViewBind) -> Builder {
-            self.adapter.reuseableViewBind = reuseableViewBind
+            self.collection.reuseableViewBind = reuseableViewBind
             return self
         }
         
-        open func build() -> RecyclerCollectionAdapter {
-            return adapter
+        open func build() -> RecyclerCollection {
+            return collection
         }
         
     }
