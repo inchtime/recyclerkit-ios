@@ -32,6 +32,10 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
         
         public var models: [ViewModel] = []
         
+        public init() {
+            
+        }
+        
 //        var hashValue : Int {
 //            return name.hashValue
 //        }
