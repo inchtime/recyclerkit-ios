@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'RecyclerKit'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of RecyclerKit.'
+  s.summary          = 'A layout framewrok for iOS'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,14 +21,14 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/evan-cai/RecyclerKit'
+  s.homepage         = 'https://github.com/inchtime/recyclerkit-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'evan-cai' => 'evan-cai@live.cn' }
-  s.source           = { :git => 'https://github.com/evan-cai/RecyclerKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/inchtime/recyclerkit-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'RecyclerKit/Classes/**/*'
   
