@@ -30,8 +30,12 @@ class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource
         
         var models: [ViewModel] = []
         
-        var hashValue : Int {
-            return name.hashValue
+//        var hashValue : Int {
+//            return name.hashValue
+//        }
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(name)
         }
         
         static func == (lhs: Section, rhs: Section) -> Bool {

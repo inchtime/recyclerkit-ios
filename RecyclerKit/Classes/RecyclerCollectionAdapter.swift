@@ -32,8 +32,12 @@ class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectio
         
         var models: [ViewModel] = []
         
-        var hashValue : Int {
-            return name.hashValue
+//        var hashValue : Int {
+//            return name.hashValue
+//        }
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(name)
         }
         
         static func == (lhs: RecyclerCollectionAdapter.Section, rhs: RecyclerCollectionAdapter.Section) -> Bool {

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RecyclerKit'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A layout framewrok for iOS'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '11.0'
   
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
 
   s.source_files = 'RecyclerKit/Classes/**/*'
   
