@@ -6,19 +6,19 @@ import UIKit
 
 public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    typealias OnModelViewClick = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> Void
+    public typealias OnModelViewClick = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> Void
     
-    typealias OnModelViewBind = (_ indexPath: IndexPath, _ viewModel: ViewModel, _ cell: UITableViewCell) -> Void
+    public typealias OnModelViewBind = (_ indexPath: IndexPath, _ viewModel: ViewModel, _ cell: UITableViewCell) -> Void
     
-    typealias OnHeaderViewBind = (_ section: Section, _ view: UIView?) -> Void
+    public typealias OnHeaderViewBind = (_ section: Section, _ view: UIView?) -> Void
     
-    typealias OnFooterViewBind = (_ section: Section, _ view: UIView?) -> Void
+    public typealias OnFooterViewBind = (_ section: Section, _ view: UIView?) -> Void
     
-    typealias OnModelViewSwipeActionsConfiguration = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> UISwipeActionsConfiguration?
+    public typealias OnModelViewSwipeActionsConfiguration = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> UISwipeActionsConfiguration?
     
     private var tableView: UITableView
     
-    class Section: Hashable {
+    public class Section: Hashable {
         
         var name: String = ""
         
@@ -34,16 +34,16 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
 //            return name.hashValue
 //        }
         
-        func hash(into hasher: inout Hasher) {
+        public func hash(into hasher: inout Hasher) {
             hasher.combine(name)
         }
         
-        static func == (lhs: Section, rhs: Section) -> Bool {
+        public static func == (lhs: Section, rhs: Section) -> Bool {
             return lhs.name == rhs.name
         }
     }
     
-    class ViewModel {
+    public class ViewModel {
         
         init(identifier: String, value: Any) {
             self.identifier = identifier
@@ -61,21 +61,21 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
         var editable: Bool = false
     }
     
-    var sections: [Section] = [] {
+    public var sections: [Section] = [] {
         didSet {
             tableView.reloadData()
         }
     }
     
-    var modelViewBind: OnModelViewBind?
+    public var modelViewBind: OnModelViewBind?
     
-    var headerViewBind: OnHeaderViewBind?
+    public var headerViewBind: OnHeaderViewBind?
     
-    var footerViewBind: OnFooterViewBind?
+    public var footerViewBind: OnFooterViewBind?
     
-    var modelViewClick: OnModelViewClick?
+    public var modelViewClick: OnModelViewClick?
     
-    var modelViewSwipeActionsConfiguration: OnModelViewSwipeActionsConfiguration?
+    public var modelViewSwipeActionsConfiguration: OnModelViewSwipeActionsConfiguration?
     
     init(_ tableView: UITableView) {
         self.tableView = tableView
@@ -139,7 +139,7 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
     /**
      * append a section
      */
-    func append(section: Section) -> Int {
+    public func append(section: Section) -> Int {
         sections.append(section)
         tableView.reloadSections([sections.count - 1], with: .fade)
         return sections.count
@@ -148,7 +148,7 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
     /**
      * append models into a section
      */
-    func append(sectionIndex: Int, models: [ViewModel]) {
+    public func append(sectionIndex: Int, models: [ViewModel]) {
         tableView.beginUpdates()
         let section = sections[sectionIndex]
         let count = section.models.count
@@ -161,7 +161,7 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
         tableView.endUpdates()
     }
     
-    func update(sectionIndex: Int, models: [ViewModel]) {
+    public func update(sectionIndex: Int, models: [ViewModel]) {
         let section = sections[sectionIndex]
         section.models = models
         tableView.reloadSections([sectionIndex], with: .fade)
@@ -182,27 +182,27 @@ public class RecyclerTableAdapter: NSObject, UITableViewDelegate, UITableViewDat
             self.adapter = RecyclerTableAdapter(tableView)
         }
         
-        func tableView(_ tableView: UITableView) -> Builder {
+        public func tableView(_ tableView: UITableView) -> Builder {
             self.tableView = tableView
             return self
         }
         
-        func modelViewBind(_ modelViewBind: @escaping OnModelViewBind) -> Builder {
+        public func modelViewBind(_ modelViewBind: @escaping OnModelViewBind) -> Builder {
             self.adapter.modelViewBind = modelViewBind
             return self
         }
         
-        func modelViewClick(_ modelViewClick: @escaping OnModelViewClick) -> Builder {
+        public func modelViewClick(_ modelViewClick: @escaping OnModelViewClick) -> Builder {
             self.adapter.modelViewClick = modelViewClick
             return self
         }
         
-        func modelViewSwipeActionsConfiguration(_ configuration: @escaping OnModelViewSwipeActionsConfiguration) -> Builder {
+        public func modelViewSwipeActionsConfiguration(_ configuration: @escaping OnModelViewSwipeActionsConfiguration) -> Builder {
             self.adapter.modelViewSwipeActionsConfiguration = configuration
             return self
         }
         
-        func build() -> RecyclerTableAdapter {
+        public func build() -> RecyclerTableAdapter {
             return adapter
         }
         

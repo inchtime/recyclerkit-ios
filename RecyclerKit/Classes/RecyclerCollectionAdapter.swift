@@ -6,21 +6,21 @@ import UIKit
 
 public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    typealias OnModelViewClick = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> Void
+    public typealias OnModelViewClick = (_ indexPath: IndexPath, _ viewModel: ViewModel) -> Void
     
-    typealias OnModelViewBind = (_ indexPath: IndexPath, _ viewModel: ViewModel, _ cell: UICollectionViewCell) -> Void
+    public typealias OnModelViewBind = (_ indexPath: IndexPath, _ viewModel: ViewModel, _ cell: UICollectionViewCell) -> Void
     
-    typealias OnReuseableViewBind = (_ indexPath: IndexPath, _ section: Section, _ kind: String, _ reuseableView: UICollectionReusableView) -> Void
+    public typealias OnReuseableViewBind = (_ indexPath: IndexPath, _ section: Section, _ kind: String, _ reuseableView: UICollectionReusableView) -> Void
     
     private var collectionView: UICollectionView
     
     private var identifierDefault = String(describing: UICollectionViewCell.self)
     
-    var spanCount : CGFloat = 1.0
+    public var spanCount : CGFloat = 1.0
     
-    var direction : UICollectionView.ScrollDirection = .vertical
+    public var direction : UICollectionView.ScrollDirection = .vertical
     
-    class Section: Hashable {
+    public class Section: Hashable {
         
         var name: String = ""
         var value: Any?
@@ -36,16 +36,16 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
 //            return name.hashValue
 //        }
         
-        func hash(into hasher: inout Hasher) {
+        public func hash(into hasher: inout Hasher) {
             hasher.combine(name)
         }
         
-        static func == (lhs: RecyclerCollectionAdapter.Section, rhs: RecyclerCollectionAdapter.Section) -> Bool {
+        public static func == (lhs: RecyclerCollectionAdapter.Section, rhs: RecyclerCollectionAdapter.Section) -> Bool {
             return lhs.name == rhs.name
         }
     }
     
-    class ViewModel {
+    public class ViewModel {
         var identifier: String
         var value: Any?
         var spanCount: CGFloat
@@ -61,19 +61,19 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
     
     //    private var spanCount: Int = 1
     
-    var sections: [Section] = [] {
+    public var sections: [Section] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
     
-    var modelViewBind : OnModelViewBind?
+    public var modelViewBind : OnModelViewBind?
     
-    var modelViewClick : OnModelViewClick?
+    public var modelViewClick : OnModelViewClick?
     
-    var reuseableViewBind : OnReuseableViewBind?
+    public var reuseableViewBind : OnReuseableViewBind?
     
-    init(collectionView: UICollectionView/*, spanCount: Int*/) {
+    public init(collectionView: UICollectionView/*, spanCount: Int*/) {
         self.collectionView = collectionView
         //        self.spanCount = spanCount
         super.init()
@@ -167,12 +167,12 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
     /**
      * append a section
      */
-    func append(section: Section) {
+    public func append(section: Section) {
         sections.append(section)
         collectionView.reloadSections([sections.count - 1])
     }
     
-    func insert(section: Section, at i: Int) {
+    public func insert(section: Section, at i: Int) {
         sections.insert(section, at: i)
         collectionView.reloadSections([i])
     }
@@ -180,7 +180,7 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
     /**
      * append models into a section
      */
-    func append(sectionIndex: Int, models: [ViewModel]) {
+    public func append(sectionIndex: Int, models: [ViewModel]) {
         let section = sections[sectionIndex]
         section.models.append(contentsOf: models)
         collectionView.reloadSections([sectionIndex])
@@ -189,7 +189,7 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
     /**
      * update models on section
      */
-    func update(sectionIndex: Int, models: [ViewModel]) {
+    public func update(sectionIndex: Int, models: [ViewModel]) {
         let section = sections[sectionIndex]
         section.models = models
         collectionView.reloadSections([sectionIndex])
@@ -212,12 +212,12 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
             self.adapter = RecyclerCollectionAdapter(collectionView: collectionView/*, spanCount: spanCount*/)
         }
         
-        func withLayout(_ layout: UICollectionViewLayout) -> Builder {
+        public func withLayout(_ layout: UICollectionViewLayout) -> Builder {
             collectionView.setCollectionViewLayout(layout, animated: false)
             return self
         }
         
-        func withFlowLayout(spanCount: CGFloat = 1.0, direction : UICollectionView.ScrollDirection = .vertical) -> Builder {
+        public func withFlowLayout(spanCount: CGFloat = 1.0, direction : UICollectionView.ScrollDirection = .vertical) -> Builder {
             
             self.adapter.spanCount = spanCount
             self.adapter.direction = direction
@@ -231,22 +231,22 @@ public class RecyclerCollectionAdapter: NSObject, UICollectionViewDelegate, UICo
             return self
         }
         
-        func modelViewBind(_ modelViewBind: @escaping OnModelViewBind) -> Builder {
+        public func modelViewBind(_ modelViewBind: @escaping OnModelViewBind) -> Builder {
             self.adapter.modelViewBind = modelViewBind
             return self
         }
         
-        func modelViewClick(_ modelViewClick: @escaping OnModelViewClick) -> Builder {
+        public func modelViewClick(_ modelViewClick: @escaping OnModelViewClick) -> Builder {
             self.adapter.modelViewClick = modelViewClick
             return self
         }
         
-        func reuseableViewBind(_ reuseableViewBind: @escaping OnReuseableViewBind) -> Builder {
+        public func reuseableViewBind(_ reuseableViewBind: @escaping OnReuseableViewBind) -> Builder {
             self.adapter.reuseableViewBind = reuseableViewBind
             return self
         }
         
-        func build() -> RecyclerCollectionAdapter {
+        public func build() -> RecyclerCollectionAdapter {
             return adapter
         }
         
