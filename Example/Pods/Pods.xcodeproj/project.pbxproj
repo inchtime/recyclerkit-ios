@@ -13,11 +13,11 @@
 		5F333B97EF108147FBA2608E34E7AC67 /* RecyclerKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B5B509A67DD6F8E56C972D4565A8C81 /* RecyclerKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		669AE0019561B2A72386B8E0B260E5D8 /* RecyclerKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4049918B67C9DFB23B07085453E6042 /* RecyclerKit-dummy.m */; };
 		671E7F33E10002666586930570224738 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		744E2C15C89B687C1675A1692FBCBD68 /* RecyclerTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704965DBCFDC751F000ED8E578B59C2 /* RecyclerTableAdapter.swift */; };
+		744E2C15C89B687C1675A1692FBCBD68 /* RecyclerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704965DBCFDC751F000ED8E578B59C2 /* RecyclerTable.swift */; };
 		8A462A01B33E203D78E5E93BFAB0575D /* Pods-RecyclerKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EFFAD6AA55CC47655E372A797822D67 /* Pods-RecyclerKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92BD8D6601068CB4291A9EE67BE32E76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		9B0DD8496CFF985BB4B14CD09EAAC582 /* Pods-RecyclerKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87577CD31117032A5C835CF7CB644D39 /* Pods-RecyclerKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E19A01B3E72732CAB5EA7D9E6D06698D /* RecyclerCollectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23878F850F9A1A6C7B0B283796D53FD1 /* RecyclerCollectionAdapter.swift */; };
+		E19A01B3E72732CAB5EA7D9E6D06698D /* RecyclerCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23878F850F9A1A6C7B0B283796D53FD1 /* RecyclerCollection.swift */; };
 		E8FC4413D099EEFF5850FF2DD33E7A8D /* Pods-RecyclerKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB098CC905AABF7EA6AD7659AFBBDB21 /* Pods-RecyclerKit_Example-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -42,21 +42,21 @@
 		054BDFFC9868E165FE2A75B660CE89F1 /* Pods-RecyclerKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyclerKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		09C8EC59A271DC330FB730B9630E05A7 /* Pods-RecyclerKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyclerKit_Example-Info.plist"; sourceTree = "<group>"; };
 		195DF16E7A3529CA095D866D033C0B7E /* Pods-RecyclerKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyclerKit_Example-frameworks.sh"; sourceTree = "<group>"; };
-		1B5B4A6780E13C2E4E1C5798D3C63DEB /* RecyclerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RecyclerKit.framework; path = RecyclerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CAFCFE5434139E794250D4F7D172F8A /* RecyclerKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RecyclerKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		23878F850F9A1A6C7B0B283796D53FD1 /* RecyclerCollectionAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecyclerCollectionAdapter.swift; path = RecyclerKit/Classes/RecyclerCollectionAdapter.swift; sourceTree = "<group>"; };
+		1B5B4A6780E13C2E4E1C5798D3C63DEB /* RecyclerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RecyclerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CAFCFE5434139E794250D4F7D172F8A /* RecyclerKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = RecyclerKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		23878F850F9A1A6C7B0B283796D53FD1 /* RecyclerCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecyclerCollection.swift; path = RecyclerKit/Classes/RecyclerCollection.swift; sourceTree = "<group>"; };
 		4411E660D38642A2A0C4118C2080B754 /* RecyclerKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecyclerKit.swift; path = RecyclerKit/Classes/RecyclerKit.swift; sourceTree = "<group>"; };
 		4B5B509A67DD6F8E56C972D4565A8C81 /* RecyclerKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RecyclerKit-umbrella.h"; sourceTree = "<group>"; };
 		4C8C7F259EC7DC2F065B71A61E7EF8C2 /* Pods-RecyclerKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RecyclerKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		56F448E90AC656E4663D38E7C1AFFFAB /* RecyclerKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RecyclerKit-prefix.pch"; sourceTree = "<group>"; };
-		75483DCD7DE74FBCA81F1FB250CA8C0B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		75483DCD7DE74FBCA81F1FB250CA8C0B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7BB3D0E6982D76345F1ADD135ECBCA07 /* Pods-RecyclerKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyclerKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		846ACD12EFE1A5516EAD807FEE011A43 /* Pods-RecyclerKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyclerKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		8704965DBCFDC751F000ED8E578B59C2 /* RecyclerTableAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecyclerTableAdapter.swift; path = RecyclerKit/Classes/RecyclerTableAdapter.swift; sourceTree = "<group>"; };
+		8704965DBCFDC751F000ED8E578B59C2 /* RecyclerTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecyclerTable.swift; path = RecyclerKit/Classes/RecyclerTable.swift; sourceTree = "<group>"; };
 		87577CD31117032A5C835CF7CB644D39 /* Pods-RecyclerKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RecyclerKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		8A03A48BDF110B4AEBB5DF21A3487718 /* Pods-RecyclerKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyclerKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		950F80453E1E1A3558DD846454A36A80 /* Pods-RecyclerKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RecyclerKit_Tests.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EFFAD6AA55CC47655E372A797822D67 /* Pods-RecyclerKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RecyclerKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		A4049918B67C9DFB23B07085453E6042 /* RecyclerKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RecyclerKit-dummy.m"; sourceTree = "<group>"; };
 		A959E67329EBE13F77B1E87117FC2EF6 /* Pods-RecyclerKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyclerKit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,12 +67,12 @@
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D403B13ED8CA9C617EC79874E04FEBC3 /* Pods-RecyclerKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyclerKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		D4B7048A766FBBCEFEAFBE6B48296F2E /* Pods-RecyclerKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyclerKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D822038A65429EC0F286345F5A41B0F4 /* Pods_RecyclerKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RecyclerKit_Example.framework; path = "Pods-RecyclerKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D822038A65429EC0F286345F5A41B0F4 /* Pods_RecyclerKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyclerKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88331E49C43109C5D8D924F13228CBE /* Pods-RecyclerKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RecyclerKit_Example.modulemap"; sourceTree = "<group>"; };
 		DA3C045D701499EB3DF23BA0649A60DE /* Pods-RecyclerKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RecyclerKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EB098CC905AABF7EA6AD7659AFBBDB21 /* Pods-RecyclerKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RecyclerKit_Example-dummy.m"; sourceTree = "<group>"; };
-		FC66C0C034B558B0C418D16EA3F5BE88 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		FDAC263F33AC6AB1E292C2AA1D2CF2E2 /* Pods_RecyclerKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RecyclerKit_Tests.framework; path = "Pods-RecyclerKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC66C0C034B558B0C418D16EA3F5BE88 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FDAC263F33AC6AB1E292C2AA1D2CF2E2 /* Pods_RecyclerKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyclerKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,9 +192,9 @@
 		D4B42679DE20309F846409D48046802A /* RecyclerKit */ = {
 			isa = PBXGroup;
 			children = (
-				23878F850F9A1A6C7B0B283796D53FD1 /* RecyclerCollectionAdapter.swift */,
+				23878F850F9A1A6C7B0B283796D53FD1 /* RecyclerCollection.swift */,
 				4411E660D38642A2A0C4118C2080B754 /* RecyclerKit.swift */,
-				8704965DBCFDC751F000ED8E578B59C2 /* RecyclerTableAdapter.swift */,
+				8704965DBCFDC751F000ED8E578B59C2 /* RecyclerTable.swift */,
 				BFE42A3EEE11E176B087932FF23C5957 /* Pod */,
 				3C53D6A32F589899B7B1B63CBCDD290E /* Support Files */,
 			);
@@ -327,6 +327,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
@@ -386,10 +387,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E19A01B3E72732CAB5EA7D9E6D06698D /* RecyclerCollectionAdapter.swift in Sources */,
+				E19A01B3E72732CAB5EA7D9E6D06698D /* RecyclerCollection.swift in Sources */,
 				669AE0019561B2A72386B8E0B260E5D8 /* RecyclerKit-dummy.m in Sources */,
 				39862791A6BED134150C1B3464F97098 /* RecyclerKit.swift in Sources */,
-				744E2C15C89B687C1675A1692FBCBD68 /* RecyclerTableAdapter.swift in Sources */,
+				744E2C15C89B687C1675A1692FBCBD68 /* RecyclerTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,8 +568,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};

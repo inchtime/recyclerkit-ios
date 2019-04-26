@@ -1,5 +1,5 @@
 PODS:
-  - RecyclerKit (0.1.3)
+  - RecyclerKit (0.1.5)
 
 DEPENDENCIES:
   - RecyclerKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RecyclerKit: 3b7969e5f0bde0dc0b945ed4542e76d5ac47ba84
+  RecyclerKit: 9e4fde53f827b8787ac3b8a17737ae5f774bdb2f
 
 PODFILE CHECKSUM: a510b8e12bf2f1ba5f7c0ff935065f3a625cbc70
 

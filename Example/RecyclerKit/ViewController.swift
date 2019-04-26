@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 
     private let identifier = String(describing: RecyclerKitCell.self)
 
-    private var adapter : RecyclerTableAdapter!
+    private var recyclerTable : RecyclerTable!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         
         tableView.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
 
-        adapter = RecyclerKit
+        recyclerTable = RecyclerKit
             .tableView(tableView)
             .modelViewBind { (indexPath, viewModel, tableViewCell) in
                 switch viewModel.identifier {
@@ -52,17 +52,17 @@ class ViewController: UIViewController {
             })
             .build()
 
-        let section: RecyclerTableAdapter.Section = RecyclerTableAdapter.Section()
-        let models: [RecyclerTableAdapter.ViewModel] = [
-            RecyclerTableAdapter.ViewModel(identifier: identifier, value: ""),
-            RecyclerTableAdapter.ViewModel(identifier: identifier, value: ""),
-            RecyclerTableAdapter.ViewModel(identifier: identifier, value: ""),
-            RecyclerTableAdapter.ViewModel(identifier: identifier, value: "")
+        let section: RecyclerTable.Section = RecyclerTable.Section()
+        let models: [RecyclerTable.ViewModel] = [
+            RecyclerTable.ViewModel(identifier: identifier, value: ""),
+            RecyclerTable.ViewModel(identifier: identifier, value: ""),
+            RecyclerTable.ViewModel(identifier: identifier, value: ""),
+            RecyclerTable.ViewModel(identifier: identifier, value: "")
         ]
 
         section.name = "phrase"
         section.models = models
-        self.adapter.sections = [section]
+        self.recyclerTable.sections = [section]
 
     }
     
